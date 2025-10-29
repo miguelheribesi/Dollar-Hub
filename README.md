@@ -61,4 +61,4 @@ Conversor de Real Brasileiro (BRL) para Dólar Americano (USD) e Dólar Canadens
 
 **1. Clone o repositório:**
 ```bash
-git clone https://github.com/SEU-USUARIO/dollar-hub.git
+git clone (https://miguelheribesi.github.io/Dollar-Hub/)
