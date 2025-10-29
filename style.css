@@ -2,8 +2,10 @@
 :root {
   --azul-principal: #1e3a5f;
   --azul-claro: #3498db;
+  --azul-neon: #52b7e8;
   --laranja: #e67e22;
   --laranja-hover: #d35400;
+  --laranja-neon: #ff8c42;
   --branco: #ffffff;
   --cinza-claro: #f8f9fa;
   --cinza-medio: #e9ecef;
@@ -17,6 +19,9 @@
   --texto-secundario: #6c757d;
   --borda-cor: #dee2e6;
   --verde-sucesso: #27ae60;
+  --cor-titulo: #3498db;
+  --cor-hover: #e67e22;
+  --cor-destaque: #2c3e50;
 }
 
 /* ===== MODO ESCURO ===== */
@@ -24,14 +29,17 @@ body.dark-mode {
   --branco: #1a1f2e;
   --cinza-claro: #252b3b;
   --cinza-medio: #2d3548;
-  --cinza-escuro: #e0e6ed;
+  --cinza-escuro: #ff8c42;
   --bg-body: #1a1f2e;
   --bg-card: #252b3b;
-  --texto-principal: #e0e6ed;
+  --texto-principal: #ff8c42;
   --texto-secundario: #a8b2c1;
   --sombra: 0 2px 8px rgba(0, 0, 0, 0.4);
   --sombra-hover: 0 5px 20px rgba(0, 0, 0, 0.6);
   --borda-cor: #3d4555;
+  --cor-titulo: #52b7e8;
+  --cor-hover: #52b7e8;
+  --cor-destaque: #ff8c42;
 }
 
 /* ===== RESET ===== */
@@ -131,7 +139,7 @@ nav a::after {
   left: 0;
   width: 0;
   height: 2px;
-  background-color: var(--laranja);
+  background-color: var(--cor-hover);
   transition: width 0.3s;
 }
 
@@ -140,7 +148,7 @@ nav a:hover::after {
 }
 
 nav a:hover {
-  color: var(--laranja);
+  color: var(--cor-hover);
 }
 
 /* BOTÃO MODO ESCURO */
@@ -156,7 +164,7 @@ nav a:hover {
 }
 
 .btn-tema:hover {
-  background-color: var(--laranja);
+  background-color: var(--cor-hover);
   transform: rotate(20deg);
 }
 
@@ -235,7 +243,7 @@ nav a:hover {
 }
 
 .conversor h3 {
-  color: var(--azul-principal);
+  color: var(--cor-titulo);
   margin-bottom: 30px;
   text-align: center;
   font-size: 1.8rem;
@@ -251,7 +259,7 @@ nav a:hover {
 
 .btn-moeda {
   background-color: var(--cinza-medio);
-  color: var(--texto-principal);
+  color: var(--cor-destaque);
   border: 2px solid var(--borda-cor);
   padding: 15px 20px;
   border-radius: 8px;
@@ -262,7 +270,7 @@ nav a:hover {
 }
 
 .btn-moeda:hover {
-  border-color: var(--azul-claro);
+  border-color: var(--cor-hover);
   transform: translateY(-2px);
 }
 
@@ -288,13 +296,18 @@ nav a:hover {
   border-color: var(--laranja);
 }
 
+/* Modo escuro - botão CAD fica laranja neon */
+body.dark-mode .btn-moeda[data-moeda="CAD"].active {
+  background: linear-gradient(135deg, #ff8c42 0%, #ff6b35 100%);
+}
+
 /* Hover específico para cada moeda */
 .btn-moeda[data-moeda="USD"]:hover {
   border-color: var(--azul-claro);
 }
 
 .btn-moeda[data-moeda="CAD"]:hover {
-  border-color: var(--laranja);
+  border-color: var(--cor-hover);
 }
 
 /* FORMULÁRIO */
@@ -306,7 +319,7 @@ nav a:hover {
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
-  color: var(--texto-principal);
+  color: var(--cor-destaque);
 }
 
 .input-group {
@@ -322,13 +335,17 @@ nav a:hover {
   font-size: 1rem;
   transition: all 0.3s;
   background-color: var(--bg-card);
-  color: var(--texto-principal);
+  color: var(--cor-destaque);
 }
 
 .form-control:focus {
-  border-color: var(--azul-claro);
+  border-color: var(--cor-hover);
   outline: none;
   box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+body.dark-mode .form-control:focus {
+  box-shadow: 0 0 0 3px rgba(255, 140, 66, 0.2);
 }
 
 .btn-refresh {
@@ -345,6 +362,14 @@ nav a:hover {
 .btn-refresh:hover {
   background-color: var(--azul-principal);
   transform: rotate(180deg);
+}
+
+body.dark-mode .btn-refresh {
+  background-color: var(--cor-hover);
+}
+
+body.dark-mode .btn-refresh:hover {
+  background-color: var(--azul-neon);
 }
 
 .btn {
@@ -399,6 +424,15 @@ nav a:hover {
   color: var(--branco);
 }
 
+body.dark-mode .btn-inverter {
+  color: var(--cor-hover);
+  border-color: var(--cor-hover);
+}
+
+body.dark-mode .btn-inverter:hover {
+  background-color: var(--cor-hover);
+}
+
 .inverter-container {
   margin: 20px 0;
   text-align: center;
@@ -417,10 +451,10 @@ nav a:hover {
   text-align: center;
   font-size: 1.05rem;
   font-weight: 600;
-  color: var(--azul-principal);
+  color: var(--cor-titulo);
   display: none;
   animation: slideIn 0.5s ease-out;
-  border-left: 5px solid var(--laranja);
+  border-left: 5px solid var(--cor-hover);
   line-height: 1.8;
 }
 
@@ -445,7 +479,7 @@ nav a:hover {
 }
 
 .comparacao-rapida h4 {
-  color: var(--azul-principal);
+  color: var(--cor-titulo);
   margin-bottom: 20px;
   text-align: center;
 }
@@ -470,6 +504,7 @@ nav a:hover {
 .comparacao-item:hover {
   transform: translateY(-3px);
   box-shadow: var(--sombra-hover);
+  border-color: var(--cor-hover);
 }
 
 .comparacao-item .flag {
@@ -479,7 +514,7 @@ nav a:hover {
 .comparacao-item strong {
   display: block;
   font-size: 1.3rem;
-  color: var(--azul-principal);
+  color: var(--cor-titulo);
 }
 
 .comparacao-item small {
@@ -499,7 +534,7 @@ nav a:hover {
 }
 
 .grafico-container h3 {
-  color: var(--azul-principal);
+  color: var(--cor-titulo);
   margin-bottom: 10px;
   text-align: center;
   font-size: 1.8rem;
@@ -533,14 +568,14 @@ nav a:hover {
 }
 
 .grafico-explicacao h4 {
-  color: var(--azul-principal);
+  color: var(--cor-titulo);
   margin-bottom: 25px;
   text-align: center;
   font-size: 1.4rem;
 }
 
 .grafico-explicacao h5 {
-  color: var(--azul-principal);
+  color: var(--cor-titulo);
   margin-bottom: 15px;
   font-size: 1.1rem;
 }
@@ -567,6 +602,7 @@ nav a:hover {
 .explicacao-item:hover {
   transform: translateX(5px);
   box-shadow: var(--sombra);
+  border-left-color: var(--cor-hover);
 }
 
 .explicacao-item .icone {
@@ -576,13 +612,13 @@ nav a:hover {
 
 .explicacao-item strong {
   display: block;
-  color: var(--azul-principal);
+  color: var(--cor-titulo);
   font-size: 1.1rem;
   margin-bottom: 8px;
 }
 
 .explicacao-item p {
-  color: var(--texto-principal);
+  color: var(--cor-destaque);
   line-height: 1.6;
   margin: 0;
 }
@@ -632,7 +668,7 @@ nav a:hover {
 .tabela-impacto td {
   padding: 12px;
   border-bottom: 1px solid var(--borda-cor);
-  color: var(--texto-principal);
+  color: var(--cor-destaque);
 }
 
 .tabela-impacto tbody tr:hover {
@@ -644,9 +680,13 @@ nav a:hover {
   font-weight: 600;
 }
 
+body.dark-mode .tabela-impacto .destaque-linha {
+  background-color: rgba(255, 140, 66, 0.1);
+}
+
 .tabela-impacto td:first-child {
   font-weight: 600;
-  color: var(--azul-principal);
+  color: var(--cor-titulo);
 }
 
 /* Dicas de Câmbio */
@@ -698,6 +738,14 @@ nav a:hover {
   color: #3498db;
 }
 
+body.dark-mode .dica-info {
+  background-color: rgba(82, 183, 232, 0.1);
+}
+
+body.dark-mode .dica-info strong {
+  color: var(--azul-neon);
+}
+
 .dica-alerta {
   background-color: rgba(230, 126, 34, 0.1);
   border-left-color: #e67e22;
@@ -705,6 +753,15 @@ nav a:hover {
 
 .dica-alerta strong {
   color: #e67e22;
+}
+
+body.dark-mode .dica-alerta {
+  background-color: rgba(255, 140, 66, 0.1);
+  border-left-color: var(--laranja-neon);
+}
+
+body.dark-mode .dica-alerta strong {
+  color: var(--laranja-neon);
 }
 
 .dica-sucesso {
@@ -727,7 +784,7 @@ nav a:hover {
 }
 
 .historico-container h3 {
-  color: var(--azul-principal);
+  color: var(--cor-titulo);
   margin-bottom: 30px;
   text-align: center;
   font-size: 1.8rem;
@@ -754,6 +811,10 @@ nav a:hover {
   border-radius: 10px;
 }
 
+body.dark-mode #historico-lista::-webkit-scrollbar-thumb {
+  background: var(--cor-hover);
+}
+
 .historico-item {
   background-color: var(--cinza-claro);
   padding: 18px;
@@ -762,6 +823,11 @@ nav a:hover {
   font-size: 0.95rem;
   border-left: 4px solid var(--azul-principal);
   transition: all 0.3s;
+  color: var(--cor-destaque);
+}
+
+body.dark-mode .historico-item {
+  border-left-color: var(--cor-hover);
 }
 
 .historico-item:hover {
@@ -798,7 +864,7 @@ nav a:hover {
 .info h3 {
   text-align: center;
   margin-bottom: 50px;
-  color: var(--azul-principal);
+  color: var(--cor-titulo);
   font-size: 2rem;
 }
 
@@ -817,13 +883,17 @@ nav a:hover {
   border-top: 4px solid var(--laranja);
 }
 
+body.dark-mode .card {
+  border-top-color: var(--laranja-neon);
+}
+
 .card:hover {
   transform: translateY(-8px);
   box-shadow: var(--sombra-hover);
 }
 
 .card h4 {
-  color: var(--azul-principal);
+  color: var(--cor-titulo);
   margin-bottom: 15px;
   font-size: 1.3rem;
 }
@@ -870,7 +940,7 @@ footer {
 }
 
 .footer-links a:hover {
-  color: var(--laranja);
+  color: var(--cor-hover);
 }
 
 /* ===== ANIMAÇÃO DE SCROLL REVEAL ===== */
