@@ -1,0 +1,24 @@
+{
+  "name": "dollar-hub-converter",
+  "version": "1.0.0",
+  "description": "Conversor de Real para Dólar (USD/CAD) com taxas em tempo real",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve"
+  },
+  "keywords": [
+    "conversor",
+    "cambio",
+    "dolar",
+    "real",
+    "usd",
+    "cad",
+    "currency",
+    "exchange"
+  ],
+  "author": "Seu Nome",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "11.2.0"
+  }
+}
