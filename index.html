@@ -17,11 +17,31 @@
           </div>
           <nav>
             <ul>
-              <li><a href="#conversor">Conversor</a></li>
-              <li><a href="#grafico-section">Gráfico Comparativo</a></li>
-              <li><a href="#info">Informações</a></li>
-              <li><a href="#contato">Contato</a></li>
+              <li>
+                <a href="#conversor" data-i18n="nav.converter">Conversor</a>
+              </li>
+              <li>
+                <a href="#grafico-section" data-i18n="nav.chart"
+                  >Gráfico Comparativo</a
+                >
+              </li>
+              <li><a href="#info" data-i18n="nav.info">Informações</a></li>
+              <li><a href="#contato" data-i18n="nav.contact">Contato</a></li>
             </ul>
+
+            <!-- SELETOR DE IDIOMA -->
+            <div class="language-selector">
+              <button class="btn-lang active" data-lang="pt">
+                <img src="https://flagcdn.com/24x18/br.png" alt="BR" /> PT
+              </button>
+              <button class="btn-lang" data-lang="en">
+                <img src="https://flagcdn.com/24x18/us.png" alt="US" /> EN
+              </button>
+              <button class="btn-lang" data-lang="es">
+                <img src="https://flagcdn.com/24x18/es.png" alt="ES" /> ES
+              </button>
+            </div>
+
             <!-- BOTÃO MODO ESCURO -->
             <button
               id="btnModoEscuro"
@@ -38,8 +58,8 @@
     <!-- HERO -->
     <section class="hero">
       <div class="container">
-        <h2>Conversor Real para Dólar</h2>
-        <p>
+        <h2 data-i18n="hero.title">Conversor Real para Dólar</h2>
+        <p data-i18n="hero.subtitle">
           Compare e converta instantaneamente entre Real Brasileiro, Dólar
           Americano e Dólar Canadense com taxas atualizadas em tempo real.
         </p>
@@ -50,26 +70,34 @@
     <section id="conversor" class="section-conversor">
       <div class="container">
         <div class="conversor scroll-reveal">
-          <h3>💰 Conversor de Moedas</h3>
+          <h3>
+            <span>💰</span>
+            <span data-i18n="converter.title">Conversor de Moedas</span>
+          </h3>
 
           <!-- SELETOR DE MOEDA -->
           <div class="moeda-selector">
             <button type="button" class="btn-moeda active" data-moeda="USD">
-              🇺🇸 Dólar Americano (USD)
+              <span>🇺🇸</span>
+              <span data-i18n="currency.usd">Dólar Americano (USD)</span>
             </button>
             <button type="button" class="btn-moeda" data-moeda="CAD">
-              🇨🇦 Dólar Canadense (CAD)
+              <span>🇨🇦</span>
+              <span data-i18n="currency.cad">Dólar Canadense (CAD)</span>
             </button>
           </div>
 
           <!-- FORMULÁRIO PRINCIPAL -->
           <form id="form-conversor">
             <div class="form-group">
-              <label for="valor">Valor em Real (BRL):</label>
+              <label for="valor" data-i18n="form.valueInBRL"
+                >Valor em Real (BRL):</label
+              >
               <input
                 type="number"
                 id="valor"
                 class="form-control"
+                data-i18n-placeholder="form.enterValue"
                 placeholder="Digite o valor em reais"
                 step="0.01"
                 min="0"
@@ -78,14 +106,18 @@
             </div>
 
             <div class="form-group">
-              <label for="taxa"
-                >Taxa de Câmbio (<span id="moeda-label">BRL/USD</span>):</label
-              >
+              <label for="taxa">
+                <span data-i18n="form.exchangeRate">Taxa de Câmbio</span> (<span
+                  id="moeda-label"
+                  >BRL/USD</span
+                >):
+              </label>
               <div class="input-group">
                 <input
                   type="number"
                   id="taxa"
                   class="form-control"
+                  data-i18n-placeholder="form.loadingRate"
                   placeholder="Carregando taxa..."
                   step="0.0001"
                   min="0"
@@ -95,6 +127,7 @@
                   type="button"
                   id="btnAtualizarTaxa"
                   class="btn-refresh"
+                  data-i18n-title="form.updateRate"
                   title="Atualizar taxa"
                 >
                   🔄
@@ -107,30 +140,39 @@
               class="btn"
               aria-label="Calcular conversão de moeda"
             >
-              <span id="btnTexto">Calcular Conversão</span>
+              <span id="btnTexto" data-i18n="form.calculate"
+                >Calcular Conversão</span
+              >
             </button>
           </form>
 
           <!-- BOTÃO INVERTER -->
           <div class="inverter-container">
             <button type="button" id="btnInverter" class="btn-inverter">
-              🔄 Inverter Conversão (<span id="inverter-label">USD</span> → BRL)
+              <span>🔄</span>
+              <span data-i18n="form.invert">Inverter Conversão</span> (<span
+                id="inverter-label"
+                >USD</span
+              >
+              → BRL)
             </button>
           </div>
 
           <!-- FORMULÁRIO INVERSO -->
           <form id="form-inverso" style="display: none">
             <div class="form-group">
-              <label for="valorDolar"
-                >Valor em <span id="moeda-inverso">Dólar Americano</span> (<span
-                  id="sigla-inverso"
-                  >USD</span
-                >):</label
-              >
+              <label for="valorDolar">
+                <span data-i18n="form.valueIn">Valor em</span>
+                <span id="moeda-inverso" data-i18n="currency.usdName"
+                  >Dólar Americano</span
+                >
+                (<span id="sigla-inverso">USD</span>):
+              </label>
               <input
                 type="number"
                 id="valorDolar"
                 class="form-control"
+                data-i18n-placeholder="form.enterDollarValue"
                 placeholder="Digite o valor em dólares"
                 step="0.01"
                 min="0"
@@ -138,7 +180,9 @@
               />
             </div>
             <button type="submit" class="btn">
-              <span id="btnTextoInverso">Converter para Reais</span>
+              <span id="btnTextoInverso" data-i18n="form.convertToBRL"
+                >Converter para Reais</span
+              >
             </button>
           </form>
 
@@ -156,20 +200,23 @@
             class="comparacao-rapida"
             style="display: none"
           >
-            <h4>📊 Comparação Rápida</h4>
+            <h4>
+              <span>📊</span>
+              <span data-i18n="comparison.title">Comparação Rápida</span>
+            </h4>
             <div class="comparacao-grid">
               <div class="comparacao-item">
                 <span class="flag">🇺🇸</span>
                 <div>
                   <strong id="valor-usd">$0.00 USD</strong>
-                  <small>Dólar Americano</small>
+                  <small data-i18n="currency.usdName">Dólar Americano</small>
                 </div>
               </div>
               <div class="comparacao-item">
                 <span class="flag">🇨🇦</span>
                 <div>
                   <strong id="valor-cad">$0.00 CAD</strong>
-                  <small>Dólar Canadense</small>
+                  <small data-i18n="currency.cadName">Dólar Canadense</small>
                 </div>
               </div>
             </div>
@@ -182,8 +229,11 @@
     <section id="grafico-section" class="section-grafico">
       <div class="container">
         <div class="grafico-container scroll-reveal">
-          <h3>📈 Gráfico Comparativo de Taxas</h3>
-          <p class="grafico-subtitulo">
+          <h3>
+            <span>📈</span>
+            <span data-i18n="chart.title">Gráfico Comparativo de Taxas</span>
+          </h3>
+          <p class="grafico-subtitulo" data-i18n="chart.subtitle">
             Comparação BRL → USD vs BRL → CAD (Últimos 7 dias)
           </p>
           <div class="grafico-wrapper">
@@ -192,16 +242,32 @@
 
           <!-- EXPLICAÇÃO DO GRÁFICO -->
           <div class="grafico-explicacao">
-            <h4>📚 Como interpretar este gráfico?</h4>
+            <h4>
+              <span>📚</span>
+              <span data-i18n="chart.howToInterpret"
+                >Como interpretar este gráfico?</span
+              >
+            </h4>
 
             <div class="explicacao-grid">
               <div class="explicacao-item">
                 <span class="icone">📉</span>
                 <div>
-                  <strong>Linha Baixa</strong>
+                  <strong data-i18n="chart.lowLine">Linha Baixa</strong>
                   <p>
-                    Moeda está <span class="destaque-caro">CARA</span><br />
-                    <small>✅ Bom para vender | ❌ Ruim para comprar</small>
+                    <span data-i18n="chart.currencyExpensive">Moeda está</span>
+                    <span class="destaque-caro" data-i18n="chart.expensive"
+                      >CARA</span
+                    ><br />
+                    <small
+                      ><span data-i18n="chart.goodToSell"
+                        >✅ Bom para vender</span
+                      >
+                      |
+                      <span data-i18n="chart.badToBuy"
+                        >❌ Ruim para comprar</span
+                      ></small
+                    >
                   </p>
                 </div>
               </div>
@@ -209,24 +275,40 @@
               <div class="explicacao-item">
                 <span class="icone">📈</span>
                 <div>
-                  <strong>Linha Alta</strong>
+                  <strong data-i18n="chart.highLine">Linha Alta</strong>
                   <p>
-                    Moeda está <span class="destaque-barato">BARATA</span><br />
-                    <small>✅ Bom para comprar | ❌ Ruim para vender</small>
+                    <span data-i18n="chart.currencyCheap">Moeda está</span>
+                    <span class="destaque-barato" data-i18n="chart.cheap"
+                      >BARATA</span
+                    ><br />
+                    <small
+                      ><span data-i18n="chart.goodToBuy"
+                        >✅ Bom para comprar</span
+                      >
+                      |
+                      <span data-i18n="chart.badToSell"
+                        >❌ Ruim para vender</span
+                      ></small
+                    >
                   </p>
                 </div>
               </div>
             </div>
 
             <div class="impacto-financeiro">
-              <h5>💰 Impacto das variações no seu bolso:</h5>
+              <h5>
+                <span>💰</span>
+                <span data-i18n="chart.impactTitle"
+                  >Impacto das variações no seu bolso:</span
+                >
+              </h5>
               <table class="tabela-impacto">
                 <thead>
                   <tr>
-                    <th>Valor convertido</th>
-                    <th>Variação de 1%</th>
-                    <th>Variação de 3%</th>
-                    <th>Variação de 5%</th>
+                    <th data-i18n="chart.convertedValue">Valor convertido</th>
+                    <th data-i18n="chart.variation1">Variação de 1%</th>
+                    <th data-i18n="chart.variation3">Variação de 3%</th>
+                    <th data-i18n="chart.variation5">Variação de 5%</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -268,8 +350,10 @@
               <div class="dica-box dica-info">
                 <span class="emoji">ℹ️</span>
                 <div>
-                  <strong>Variações diárias normais:</strong>
-                  <p>
+                  <strong data-i18n="tips.dailyVariations"
+                    >Variações diárias normais:</strong
+                  >
+                  <p data-i18n="tips.dailyVariationsText">
                     Oscilações de 0,5% a 2% são comuns e fazem parte do mercado.
                     Para valores até R$ 1.000, a diferença é pequena.
                   </p>
@@ -279,8 +363,10 @@
               <div class="dica-box dica-alerta">
                 <span class="emoji">⚠️</span>
                 <div>
-                  <strong>Quando vale a pena esperar?</strong>
-                  <p>
+                  <strong data-i18n="tips.whenToWait"
+                    >Quando vale a pena esperar?</strong
+                  >
+                  <p data-i18n="tips.whenToWaitText">
                     Para conversões acima de R$ 5.000, variações de 3-5% podem
                     resultar em economia (ou perda) significativa. Acompanhe o
                     gráfico!
@@ -291,8 +377,8 @@
               <div class="dica-box dica-sucesso">
                 <span class="emoji">💡</span>
                 <div>
-                  <strong>Dica profissional:</strong>
-                  <p>
+                  <strong data-i18n="tips.proTip">Dica profissional:</strong>
+                  <p data-i18n="tips.proTipText">
                     Compare sempre as duas moedas (USD e CAD). Às vezes, uma
                     está mais vantajosa que a outra dependendo do seu objetivo.
                   </p>
@@ -308,9 +394,16 @@
     <section id="historico-section" class="section-historico">
       <div class="container">
         <div class="historico-container scroll-reveal">
-          <h3>📜 Histórico de Conversões</h3>
+          <h3>
+            <span>📜</span>
+            <span data-i18n="history.title">Histórico de Conversões</span>
+          </h3>
           <div id="historico-lista"></div>
-          <button id="limparHistorico" class="btn-secundario">
+          <button
+            id="limparHistorico"
+            class="btn-secundario"
+            data-i18n="history.clear"
+          >
             Limpar Histórico
           </button>
         </div>
@@ -320,35 +413,49 @@
     <!-- INFORMAÇÕES -->
     <section id="info" class="info">
       <div class="container">
-        <h3 class="scroll-reveal">Informações sobre as Moedas</h3>
+        <h3 class="scroll-reveal" data-i18n="info.title">
+          Informações sobre as Moedas
+        </h3>
         <div class="cards">
           <div class="card scroll-reveal">
-            <h4>🇧🇷 Real Brasileiro (BRL)</h4>
-            <p>
+            <h4>
+              <span>🇧🇷</span>
+              <span data-i18n="info.brlTitle">Real Brasileiro (BRL)</span>
+            </h4>
+            <p data-i18n="info.brlText">
               O Real é a moeda oficial do Brasil desde 1994. É uma das moedas
               mais negociadas da América Latina e possui grande liquidez no
               mercado internacional de câmbio.
             </p>
           </div>
           <div class="card scroll-reveal">
-            <h4>🇺🇸 Dólar Americano (USD)</h4>
-            <p>
+            <h4>
+              <span>🇺🇸</span>
+              <span data-i18n="info.usdTitle">Dólar Americano (USD)</span>
+            </h4>
+            <p data-i18n="info.usdText">
               O Dólar dos Estados Unidos é a moeda mais negociada do mundo e
               serve como referência para o comércio internacional. É considerada
               a principal moeda de reserva global.
             </p>
           </div>
           <div class="card scroll-reveal">
-            <h4>🇨🇦 Dólar Canadense (CAD)</h4>
-            <p>
+            <h4>
+              <span>🇨🇦</span>
+              <span data-i18n="info.cadTitle">Dólar Canadense (CAD)</span>
+            </h4>
+            <p data-i18n="info.cadText">
               O Dólar Canadense é a moeda oficial do Canadá. É conhecido como
               "Loonie" e é uma das principais moedas de commodities, sendo
               influenciado pelo preço do petróleo.
             </p>
           </div>
           <div class="card scroll-reveal">
-            <h4>💡 Dicas de Câmbio</h4>
-            <p>
+            <h4>
+              <span>💡</span>
+              <span data-i18n="info.tipsTitle">Dicas de Câmbio</span>
+            </h4>
+            <p data-i18n="info.tipsText">
               Compare sempre as taxas entre USD e CAD antes de converter. O
               spread entre as moedas pode variar. Fique atento às taxas de
               serviço aplicadas pelas casas de câmbio.
@@ -363,13 +470,18 @@
       <div class="container">
         <div class="footer-content">
           <div class="footer-logo">Dollar Hub</div>
-          <p>Seu conversor confiável para transações internacionais</p>
+          <p data-i18n="footer.subtitle">
+            Seu conversor confiável para transações internacionais
+          </p>
           <div class="footer-links">
-            <a href="#">Política de Privacidade</a>
-            <a href="#">Termos de Uso</a>
-            <a href="#">Contato</a>
+            <a href="#" data-i18n="footer.privacy">Política de Privacidade</a>
+            <a href="#" data-i18n="footer.terms">Termos de Uso</a>
+            <a href="#" data-i18n="footer.contact">Contato</a>
           </div>
-          <p>&copy; 2025 Dollar Hub. Todos os direitos reservados.</p>
+          <p>
+            <span>&copy; 2025 Dollar Hub.</span>
+            <span data-i18n="footer.rights">Todos os direitos reservados.</span>
+          </p>
         </div>
       </div>
     </footer>
