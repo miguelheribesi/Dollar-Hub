@@ -1,3 +1,383 @@
+// ===== SISTEMA DE INTERNACIONALIZAÇÃO =====
+const translations = {
+  pt: {
+    nav: {
+      converter: "Conversor",
+      chart: "Gráfico Comparativo",
+      info: "Informações",
+      contact: "Contato",
+    },
+    hero: {
+      title: "Conversor Real para Dólar",
+      subtitle:
+        "Compare e converta instantaneamente entre Real Brasileiro, Dólar Americano e Dólar Canadense com taxas atualizadas em tempo real.",
+    },
+    converter: {
+      title: "Conversor de Moedas",
+    },
+    currency: {
+      usd: "Dólar Americano (USD)",
+      cad: "Dólar Canadense (CAD)",
+      usdName: "Dólar Americano",
+      cadName: "Dólar Canadense",
+      brl: "Real Brasileiro",
+    },
+    form: {
+      valueInBRL: "Valor em Real (BRL):",
+      enterValue: "Digite o valor em reais",
+      exchangeRate: "Taxa de Câmbio",
+      loadingRate: "Carregando taxa...",
+      updateRate: "Atualizar taxa",
+      calculate: "Calcular Conversão",
+      invert: "Inverter Conversão",
+      valueIn: "Valor em",
+      enterDollarValue: "Digite o valor em dólares",
+      convertToBRL: "Converter para Reais",
+      loadingRates: "Carregando taxas...",
+      normalConversion: "Conversão Normal",
+    },
+    comparison: {
+      title: "Comparação Rápida",
+    },
+    chart: {
+      title: "Gráfico Comparativo de Taxas",
+      subtitle: "Comparação BRL → USD vs BRL → CAD (Últimos 7 dias)",
+      howToInterpret: "Como interpretar este gráfico?",
+      lowLine: "Linha Baixa",
+      highLine: "Linha Alta",
+      currencyExpensive: "Moeda está",
+      currencyCheap: "Moeda está",
+      expensive: "CARA",
+      cheap: "BARATA",
+      goodToSell: "✅ Bom para vender",
+      badToBuy: "❌ Ruim para comprar",
+      goodToBuy: "✅ Bom para comprar",
+      badToSell: "❌ Ruim para vender",
+      impactTitle: "Impacto das variações no seu bolso:",
+      convertedValue: "Valor convertido",
+      variation1: "Variação de 1%",
+      variation3: "Variação de 3%",
+      variation5: "Variação de 5%",
+      exchangeRateLabel: "Taxa de Câmbio (BRL)",
+      dateLabel: "Data",
+    },
+    tips: {
+      dailyVariations: "Variações diárias normais:",
+      dailyVariationsText:
+        "Oscilações de 0,5% a 2% são comuns e fazem parte do mercado. Para valores até R$ 1.000, a diferença é pequena.",
+      whenToWait: "Quando vale a pena esperar?",
+      whenToWaitText:
+        "Para conversões acima de R$ 5.000, variações de 3-5% podem resultar em economia (ou perda) significativa. Acompanhe o gráfico!",
+      proTip: "Dica profissional:",
+      proTipText:
+        "Compare sempre as duas moedas (USD e CAD). Às vezes, uma está mais vantajosa que a outra dependendo do seu objetivo.",
+    },
+    history: {
+      title: "Histórico de Conversões",
+      clear: "Limpar Histórico",
+      noHistory: "Nenhuma conversão realizada ainda",
+      service: "Serviço",
+      rate: "Taxa",
+      confirmClear: "Deseja realmente limpar o histórico?",
+    },
+    info: {
+      title: "Informações sobre as Moedas",
+      brlTitle: "Real Brasileiro (BRL)",
+      brlText:
+        "O Real é a moeda oficial do Brasil desde 1994. É uma das moedas mais negociadas da América Latina e possui grande liquidez no mercado internacional de câmbio.",
+      usdTitle: "Dólar Americano (USD)",
+      usdText:
+        "O Dólar dos Estados Unidos é a moeda mais negociada do mundo e serve como referência para o comércio internacional. É considerada a principal moeda de reserva global.",
+      cadTitle: "Dólar Canadense (CAD)",
+      cadText:
+        'O Dólar Canadense é a moeda oficial do Canadá. É conhecido como "Loonie" e é uma das principais moedas de commodities, sendo influenciado pelo preço do petróleo.',
+      tipsTitle: "Dicas de Câmbio",
+      tipsText:
+        "Compare sempre as taxas entre USD e CAD antes de converter. O spread entre as moedas pode variar. Fique atento às taxas de serviço aplicadas pelas casas de câmbio.",
+    },
+    footer: {
+      subtitle: "Seu conversor confiável para transações internacionais",
+      privacy: "Política de Privacidade",
+      terms: "Termos de Uso",
+      contact: "Contato",
+      rights: "Todos os direitos reservados.",
+    },
+    alerts: {
+      invalidValue: "Digite um valor válido em reais.",
+      invalidDollarValue: "Digite um valor válido em dólares.",
+      rateUnavailable: "Taxa de câmbio não disponível. Tente atualizar.",
+      errorLoadingRates:
+        "Não foi possível obter as taxas de câmbio. Tente novamente mais tarde.",
+      usingCache: "Usando taxas do cache",
+      errorLoadingChart:
+        "Erro ao carregar gráfico. Tente novamente mais tarde.",
+    },
+    results: {
+      conversionResult: "Resultado da Conversão:",
+      valueInBRL: "Valor em BRL",
+      exchangeRate: "Taxa de câmbio",
+      serviceFee: "Taxa de serviço",
+      finalValue: "Valor final em",
+      inverseResult: "Resultado da Conversão Inversa:",
+      valueIn: "Valor em",
+      valueInReais: "Valor em Reais",
+    },
+  },
+  en: {
+    nav: {
+      converter: "Converter",
+      chart: "Comparison Chart",
+      info: "Information",
+      contact: "Contact",
+    },
+    hero: {
+      title: "Real to Dollar Converter",
+      subtitle:
+        "Instantly compare and convert between Brazilian Real, US Dollar, and Canadian Dollar with real-time updated rates.",
+    },
+    converter: {
+      title: "Currency Converter",
+    },
+    currency: {
+      usd: "US Dollar (USD)",
+      cad: "Canadian Dollar (CAD)",
+      usdName: "US Dollar",
+      cadName: "Canadian Dollar",
+      brl: "Brazilian Real",
+    },
+    form: {
+      valueInBRL: "Value in Real (BRL):",
+      enterValue: "Enter the value in reais",
+      exchangeRate: "Exchange Rate",
+      loadingRate: "Loading rate...",
+      updateRate: "Update rate",
+      calculate: "Calculate Conversion",
+      invert: "Invert Conversion",
+      valueIn: "Value in",
+      enterDollarValue: "Enter the value in dollars",
+      convertToBRL: "Convert to Reais",
+      loadingRates: "Loading rates...",
+      normalConversion: "Normal Conversion",
+    },
+    comparison: {
+      title: "Quick Comparison",
+    },
+    chart: {
+      title: "Rate Comparison Chart",
+      subtitle: "BRL → USD vs BRL → CAD Comparison (Last 7 days)",
+      howToInterpret: "How to interpret this chart?",
+      lowLine: "Low Line",
+      highLine: "High Line",
+      currencyExpensive: "Currency is",
+      currencyCheap: "Currency is",
+      expensive: "EXPENSIVE",
+      cheap: "CHEAP",
+      goodToSell: "✅ Good to sell",
+      badToBuy: "❌ Bad to buy",
+      goodToBuy: "✅ Good to buy",
+      badToSell: "❌ Bad to sell",
+      impactTitle: "Impact of variations on your pocket:",
+      convertedValue: "Converted value",
+      variation1: "1% Variation",
+      variation3: "3% Variation",
+      variation5: "5% Variation",
+      exchangeRateLabel: "Exchange Rate (BRL)",
+      dateLabel: "Date",
+    },
+    tips: {
+      dailyVariations: "Normal daily variations:",
+      dailyVariationsText:
+        "Fluctuations of 0.5% to 2% are common and part of the market. For values up to R$ 1,000, the difference is small.",
+      whenToWait: "When is it worth waiting?",
+      whenToWaitText:
+        "For conversions above R$ 5,000, variations of 3-5% can result in significant savings (or loss). Follow the chart!",
+      proTip: "Pro tip:",
+      proTipText:
+        "Always compare both currencies (USD and CAD). Sometimes one is more advantageous than the other depending on your goal.",
+    },
+    history: {
+      title: "Conversion History",
+      clear: "Clear History",
+      noHistory: "No conversions made yet",
+      service: "Service",
+      rate: "Rate",
+      confirmClear: "Do you really want to clear the history?",
+    },
+    info: {
+      title: "Currency Information",
+      brlTitle: "Brazilian Real (BRL)",
+      brlText:
+        "The Real is Brazil's official currency since 1994. It is one of the most traded currencies in Latin America and has great liquidity in the international exchange market.",
+      usdTitle: "US Dollar (USD)",
+      usdText:
+        "The US Dollar is the world's most traded currency and serves as a reference for international trade. It is considered the main global reserve currency.",
+      cadTitle: "Canadian Dollar (CAD)",
+      cadText:
+        'The Canadian Dollar is Canada\'s official currency. Known as "Loonie", it is one of the main commodity currencies, being influenced by oil prices.',
+      tipsTitle: "Exchange Tips",
+      tipsText:
+        "Always compare rates between USD and CAD before converting. The spread between currencies can vary. Pay attention to service fees charged by exchange houses.",
+    },
+    footer: {
+      subtitle: "Your reliable converter for international transactions",
+      privacy: "Privacy Policy",
+      terms: "Terms of Use",
+      contact: "Contact",
+      rights: "All rights reserved.",
+    },
+    alerts: {
+      invalidValue: "Enter a valid value in reais.",
+      invalidDollarValue: "Enter a valid value in dollars.",
+      rateUnavailable: "Exchange rate unavailable. Try updating.",
+      errorLoadingRates:
+        "Could not get exchange rates. Please try again later.",
+      usingCache: "Using cached rates",
+      errorLoadingChart: "Error loading chart. Please try again later.",
+    },
+    results: {
+      conversionResult: "Conversion Result:",
+      valueInBRL: "Value in BRL",
+      exchangeRate: "Exchange rate",
+      serviceFee: "Service fee",
+      finalValue: "Final value in",
+      inverseResult: "Inverse Conversion Result:",
+      valueIn: "Value in",
+      valueInReais: "Value in Reais",
+    },
+  },
+  es: {
+    nav: {
+      converter: "Convertidor",
+      chart: "Gráfico Comparativo",
+      info: "Información",
+      contact: "Contacto",
+    },
+    hero: {
+      title: "Convertidor Real a Dólar",
+      subtitle:
+        "Compare y convierta instantáneamente entre Real Brasileño, Dólar Estadounidense y Dólar Canadiense con tasas actualizadas en tiempo real.",
+    },
+    converter: {
+      title: "Convertidor de Monedas",
+    },
+    currency: {
+      usd: "Dólar Estadounidense (USD)",
+      cad: "Dólar Canadiense (CAD)",
+      usdName: "Dólar Estadounidense",
+      cadName: "Dólar Canadiense",
+      brl: "Real Brasileño",
+    },
+    form: {
+      valueInBRL: "Valor en Real (BRL):",
+      enterValue: "Ingrese el valor en reales",
+      exchangeRate: "Tasa de Cambio",
+      loadingRate: "Cargando tasa...",
+      updateRate: "Actualizar tasa",
+      calculate: "Calcular Conversión",
+      invert: "Invertir Conversión",
+      valueIn: "Valor en",
+      enterDollarValue: "Ingrese el valor en dólares",
+      convertToBRL: "Convertir a Reales",
+      loadingRates: "Cargando tasas...",
+      normalConversion: "Conversión Normal",
+    },
+    comparison: {
+      title: "Comparación Rápida",
+    },
+    chart: {
+      title: "Gráfico Comparativo de Tasas",
+      subtitle: "Comparación BRL → USD vs BRL → CAD (Últimos 7 días)",
+      howToInterpret: "¿Cómo interpretar este gráfico?",
+      lowLine: "Línea Baja",
+      highLine: "Línea Alta",
+      currencyExpensive: "La moneda está",
+      currencyCheap: "La moneda está",
+      expensive: "CARA",
+      cheap: "BARATA",
+      goodToSell: "✅ Bueno para vender",
+      badToBuy: "❌ Malo para comprar",
+      goodToBuy: "✅ Bueno para comprar",
+      badToSell: "❌ Malo para vender",
+      impactTitle: "Impacto de las variaciones en su bolsillo:",
+      convertedValue: "Valor convertido",
+      variation1: "Variación del 1%",
+      variation3: "Variación del 3%",
+      variation5: "Variación del 5%",
+      exchangeRateLabel: "Tasa de Cambio (BRL)",
+      dateLabel: "Fecha",
+    },
+    tips: {
+      dailyVariations: "Variaciones diarias normales:",
+      dailyVariationsText:
+        "Las fluctuaciones del 0,5% al 2% son comunes y forman parte del mercado. Para valores hasta R$ 1.000, la diferencia es pequeña.",
+      whenToWait: "¿Cuándo vale la pena esperar?",
+      whenToWaitText:
+        "Para conversiones superiores a R$ 5.000, las variaciones del 3-5% pueden resultar en ahorros (o pérdidas) significativos. ¡Siga el gráfico!",
+      proTip: "Consejo profesional:",
+      proTipText:
+        "Siempre compare ambas monedas (USD y CAD). A veces una es más ventajosa que la otra dependiendo de su objetivo.",
+    },
+    history: {
+      title: "Historial de Conversiones",
+      clear: "Limpiar Historial",
+      noHistory: "Aún no se han realizado conversiones",
+      service: "Servicio",
+      rate: "Tasa",
+      confirmClear: "¿Realmente desea limpiar el historial?",
+    },
+    info: {
+      title: "Información sobre las Monedas",
+      brlTitle: "Real Brasileño (BRL)",
+      brlText:
+        "El Real es la moneda oficial de Brasil desde 1994. Es una de las monedas más negociadas de América Latina y tiene gran liquidez en el mercado cambiario internacional.",
+      usdTitle: "Dólar Estadounidense (USD)",
+      usdText:
+        "El Dólar Estadounidense es la moneda más negociada del mundo y sirve como referencia para el comercio internacional. Es considerada la principal moneda de reserva global.",
+      cadTitle: "Dólar Canadiense (CAD)",
+      cadText:
+        'El Dólar Canadiense es la moneda oficial de Canadá. Conocido como "Loonie", es una de las principales monedas de materias primas, siendo influenciado por el precio del petróleo.',
+      tipsTitle: "Consejos de Cambio",
+      tipsText:
+        "Siempre compare las tasas entre USD y CAD antes de convertir. El diferencial entre las monedas puede variar. Preste atención a las tarifas de servicio aplicadas por las casas de cambio.",
+    },
+    footer: {
+      subtitle: "Su convertidor confiable para transacciones internacionales",
+      privacy: "Política de Privacidad",
+      terms: "Términos de Uso",
+      contact: "Contacto",
+      rights: "Todos los derechos reservados.",
+    },
+    alerts: {
+      invalidValue: "Ingrese un valor válido en reales.",
+      invalidDollarValue: "Ingrese un valor válido en dólares.",
+      rateUnavailable: "Tasa de cambio no disponible. Intente actualizar.",
+      errorLoadingRates:
+        "No se pudieron obtener las tasas de cambio. Por favor, inténtelo más tarde.",
+      usingCache: "Usando tasas del caché",
+      errorLoadingChart:
+        "Error al cargar el gráfico. Por favor, inténtelo más tarde.",
+    },
+    results: {
+      conversionResult: "Resultado de la Conversión:",
+      valueInBRL: "Valor en BRL",
+      exchangeRate: "Tasa de cambio",
+      serviceFee: "Tarifa de servicio",
+      finalValue: "Valor final en",
+      inverseResult: "Resultado de la Conversión Inversa:",
+      valueIn: "Valor en",
+      valueInReais: "Valor en Reales",
+    },
+  },
+};
+
+// ===== VARIÁVEIS GLOBAIS =====
+let currentLanguage = "pt";
+let moedaSelecionada = "USD";
+let taxaUSD = 0;
+let taxaCAD = 0;
+let graficoInstance = null;
+let estadoGrafico = "ambos";
+
 // ===== TAXAS DE SERVIÇO (MERCADO DE DÓLAR) =====
 const taxasServico = [
   { min: 0, max: 50, taxa: 2.5 },
@@ -9,12 +389,101 @@ const taxasServico = [
   { min: 2001, max: 5000, taxa: 70.0 },
 ];
 
-// ===== VARIÁVEIS GLOBAIS =====
-let moedaSelecionada = "USD";
-let taxaUSD = 0;
-let taxaCAD = 0;
-let graficoInstance = null;
-let estadoGrafico = "ambos"; // 'ambos', 'USD', 'CAD'
+// ===== FUNÇÃO DE TRADUÇÃO =====
+function t(key) {
+  const keys = key.split(".");
+  let value = translations[currentLanguage];
+
+  for (const k of keys) {
+    if (value && value[k]) {
+      value = value[k];
+    } else {
+      return key;
+    }
+  }
+
+  return value;
+}
+
+// ===== FUNÇÃO PARA MUDAR IDIOMA =====
+function changeLanguage(lang) {
+  currentLanguage = lang;
+  localStorage.setItem("preferredLanguage", lang);
+
+  // Atualizar botões de idioma
+  document.querySelectorAll(".btn-lang").forEach((btn) => {
+    btn.classList.toggle("active", btn.dataset.lang === lang);
+  });
+
+  // Atualizar HTML lang
+  document.documentElement.lang =
+    lang === "pt" ? "pt-BR" : lang === "es" ? "es-ES" : "en-US";
+
+  // Atualizar textos estáticos
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+    const key = element.getAttribute("data-i18n");
+    element.textContent = t(key);
+  });
+
+  // Atualizar placeholders
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+    const key = element.getAttribute("data-i18n-placeholder");
+    element.placeholder = t(key);
+  });
+
+  // Atualizar títulos
+  document.querySelectorAll("[data-i18n-title]").forEach((element) => {
+    const key = element.getAttribute("data-i18n-title");
+    element.title = t(key);
+  });
+
+  // Atualizar moeda labels
+  updateCurrencyLabels();
+
+  // Re-exibir histórico com novo idioma
+  exibirHistorico();
+
+  // Atualizar gráfico se existir
+  if (graficoInstance) {
+    atualizarLabelsGrafico();
+  }
+}
+
+// ===== FUNÇÃO PARA ATUALIZAR LABELS DE MOEDA =====
+function updateCurrencyLabels() {
+  const moedaNome =
+    moedaSelecionada === "USD" ? t("currency.usdName") : t("currency.cadName");
+
+  document.querySelectorAll(".btn-moeda").forEach((btn) => {
+    const moeda = btn.dataset.moeda;
+    if (moeda === "USD") {
+      btn.querySelector("span:last-child").textContent = t("currency.usd");
+    } else if (moeda === "CAD") {
+      btn.querySelector("span:last-child").textContent = t("currency.cad");
+    }
+  });
+
+  const moedaInverso = document.getElementById("moeda-inverso");
+  if (moedaInverso) {
+    moedaInverso.textContent = moedaNome;
+  }
+}
+
+// ===== INICIALIZAR SELETOR DE IDIOMA =====
+document.addEventListener("DOMContentLoaded", () => {
+  // Recuperar idioma preferido
+  const savedLanguage = localStorage.getItem("preferredLanguage") || "pt";
+
+  // Adicionar listeners aos botões de idioma
+  document.querySelectorAll(".btn-lang").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      changeLanguage(btn.dataset.lang);
+    });
+  });
+
+  // Aplicar idioma salvo
+  changeLanguage(savedLanguage);
+});
 
 // ===== MODO ESCURO =====
 const btnModoEscuro = document.getElementById("btnModoEscuro");
@@ -75,8 +544,12 @@ document.querySelectorAll(".btn-moeda").forEach((btn) => {
     ).textContent = `BRL/${moedaSelecionada}`;
     document.getElementById("inverter-label").textContent = moedaSelecionada;
     document.getElementById("sigla-inverso").textContent = moedaSelecionada;
-    document.getElementById("moeda-inverso").textContent =
-      moedaSelecionada === "USD" ? "Dólar Americano" : "Dólar Canadense";
+
+    const moedaNome =
+      moedaSelecionada === "USD"
+        ? t("currency.usdName")
+        : t("currency.cadName");
+    document.getElementById("moeda-inverso").textContent = moedaNome;
 
     // Atualizar taxa exibida
     document.getElementById("taxa").value = (
@@ -92,9 +565,9 @@ async function carregarTaxas() {
   const inputTaxa = document.getElementById("taxa");
 
   if (btnTexto) {
-    btnTexto.textContent = "Carregando taxas...";
+    btnTexto.textContent = t("form.loadingRates");
     btnCalcular.disabled = true;
-    inputTaxa.value = "Carregando...";
+    inputTaxa.value = t("form.loadingRate");
   }
 
   try {
@@ -129,16 +602,14 @@ async function carregarTaxas() {
       inputTaxa.value = (
         moedaSelecionada === "USD" ? taxaUSD : taxaCAD
       ).toFixed(4);
-      console.log("Usando taxas do cache");
+      console.log(t("alerts.usingCache"));
     } else {
-      alert(
-        "Não foi possível obter as taxas de câmbio. Tente novamente mais tarde."
-      );
+      alert(t("alerts.errorLoadingRates"));
       inputTaxa.value = "";
     }
   } finally {
     if (btnTexto) {
-      btnTexto.textContent = "Calcular Conversão";
+      btnTexto.textContent = t("form.calculate");
       btnCalcular.disabled = false;
     }
   }
@@ -189,7 +660,13 @@ function obterTaxasCache() {
 function salvarHistorico(valorBRL, moeda, taxaCambio, valorFinal, taxaServico) {
   const historico = JSON.parse(localStorage.getItem("historicoDolar") || "[]");
   historico.push({
-    data: new Date().toLocaleString("pt-BR"),
+    data: new Date().toLocaleString(
+      currentLanguage === "pt"
+        ? "pt-BR"
+        : currentLanguage === "es"
+        ? "es-ES"
+        : "en-US"
+    ),
     valorBRL: valorBRL,
     moeda: moeda,
     taxa: taxaCambio,
@@ -212,8 +689,9 @@ function exibirHistorico() {
   if (!listaDiv) return;
 
   if (historico.length === 0) {
-    listaDiv.innerHTML =
-      '<p style="text-align: center; color: #999;">Nenhuma conversão realizada ainda</p>';
+    listaDiv.innerHTML = `<p style="text-align: center; color: #999;">${t(
+      "history.noHistory"
+    )}</p>`;
     return;
   }
 
@@ -226,7 +704,9 @@ function exibirHistorico() {
       R$ ${item.valorBRL.toFixed(2)} → $${item.valorFinal.toFixed(2)} ${
         item.moeda
       }<br>
-      Taxa: ${item.taxa.toFixed(4)} | Serviço: R$ ${item.taxaServico.toFixed(2)}
+      ${t("history.rate")}: ${item.taxa.toFixed(4)} | ${t(
+        "history.service"
+      )}: R$ ${item.taxaServico.toFixed(2)}
     </div>
   `
     )
@@ -234,7 +714,7 @@ function exibirHistorico() {
 }
 
 function limparHistorico() {
-  if (confirm("Deseja realmente limpar o histórico?")) {
+  if (confirm(t("history.confirmClear"))) {
     localStorage.removeItem("historicoDolar");
     exibirHistorico();
   }
@@ -248,12 +728,12 @@ document.getElementById("form-conversor").addEventListener("submit", (e) => {
   const taxaCambio = moedaSelecionada === "USD" ? taxaUSD : taxaCAD;
 
   if (isNaN(valor) || valor <= 0) {
-    alert("Digite um valor válido em reais.");
+    alert(t("alerts.invalidValue"));
     return;
   }
 
   if (!taxaCambio || taxaCambio === 0) {
-    alert("Taxa de câmbio não disponível. Tente atualizar.");
+    alert(t("alerts.rateUnavailable"));
     return;
   }
 
@@ -272,15 +752,17 @@ document.getElementById("form-conversor").addEventListener("submit", (e) => {
   const resultadoDiv = document.getElementById("resultado");
   const bandeira = moedaSelecionada === "USD" ? "🇺🇸" : "🇨🇦";
   const nomeMoeda =
-    moedaSelecionada === "USD" ? "Dólar Americano" : "Dólar Canadense";
+    moedaSelecionada === "USD" ? t("currency.usdName") : t("currency.cadName");
 
   resultadoDiv.style.display = "block";
   resultadoDiv.innerHTML = `
-    ${bandeira} <strong>Resultado da Conversão:</strong><br>
-    Valor em BRL: R$ ${valor.toFixed(2)}<br>
-    Taxa de câmbio: ${taxaCambio.toFixed(4)} ${moedaSelecionada}/BRL<br>
-    Taxa de serviço: R$ ${taxaServico.toFixed(2)}<br>
-    💵 <strong>Valor final em ${nomeMoeda}: $${valorFinal.toFixed(
+    ${bandeira} <strong>${t("results.conversionResult")}</strong><br>
+    ${t("results.valueInBRL")}: R$ ${valor.toFixed(2)}<br>
+    ${t("results.exchangeRate")}: ${taxaCambio.toFixed(
+    4
+  )} ${moedaSelecionada}/BRL<br>
+    ${t("results.serviceFee")}: R$ ${taxaServico.toFixed(2)}<br>
+    💵 <strong>${t("results.finalValue")} ${nomeMoeda}: $${valorFinal.toFixed(
     2
   )} ${moedaSelecionada}</strong>
   `;
@@ -300,19 +782,20 @@ document.getElementById("form-conversor").addEventListener("submit", (e) => {
 document.getElementById("btnInverter")?.addEventListener("click", () => {
   const formPrincipal = document.getElementById("form-conversor");
   const formInverso = document.getElementById("form-inverso");
+  const btnInverter = document.getElementById("btnInverter");
 
   if (formInverso.style.display === "none") {
     formPrincipal.style.display = "none";
     formInverso.style.display = "block";
-    document.getElementById(
-      "btnInverter"
-    ).innerHTML = `🔄 Conversão Normal (BRL → ${moedaSelecionada})`;
+    btnInverter.innerHTML = `🔄 ${t(
+      "form.normalConversion"
+    )} (BRL → ${moedaSelecionada})`;
   } else {
     formPrincipal.style.display = "block";
     formInverso.style.display = "none";
-    document.getElementById(
-      "btnInverter"
-    ).innerHTML = `🔄 Inverter Conversão (<span id="inverter-label">${moedaSelecionada}</span> → BRL)`;
+    btnInverter.innerHTML = `🔄 ${t(
+      "form.invert"
+    )} (<span id="inverter-label">${moedaSelecionada}</span> → BRL)`;
   }
 });
 
@@ -323,12 +806,12 @@ document.getElementById("form-inverso")?.addEventListener("submit", (e) => {
   const taxaCambio = moedaSelecionada === "USD" ? taxaUSD : taxaCAD;
 
   if (isNaN(valorDolar) || valorDolar <= 0) {
-    alert("Digite um valor válido em dólares.");
+    alert(t("alerts.invalidDollarValue"));
     return;
   }
 
   if (!taxaCambio || taxaCambio === 0) {
-    alert("Taxa de câmbio não disponível. Tente atualizar.");
+    alert(t("alerts.rateUnavailable"));
     return;
   }
 
@@ -338,10 +821,12 @@ document.getElementById("form-inverso")?.addEventListener("submit", (e) => {
   const resultadoDiv = document.getElementById("resultado");
   resultadoDiv.style.display = "block";
   resultadoDiv.innerHTML = `
-    ${bandeira} <strong>Resultado da Conversão Inversa:</strong><br>
-    Valor em ${moedaSelecionada}: $${valorDolar.toFixed(2)}<br>
-    Taxa de câmbio: ${taxaCambio.toFixed(4)} ${moedaSelecionada}/BRL<br>
-    💰 <strong>Valor em Reais: R$ ${valorReal.toFixed(2)}</strong>
+    ${bandeira} <strong>${t("results.inverseResult")}</strong><br>
+    ${t("results.valueIn")} ${moedaSelecionada}: $${valorDolar.toFixed(2)}<br>
+    ${t("results.exchangeRate")}: ${taxaCambio.toFixed(
+    4
+  )} ${moedaSelecionada}/BRL<br>
+    💰 <strong>${t("results.valueInReais")}: R$ ${valorReal.toFixed(2)}</strong>
   `;
 });
 
@@ -366,6 +851,19 @@ function atualizarVisibilidadeGrafico() {
   graficoInstance.update();
 }
 
+// ===== FUNÇÃO: Atualizar labels do gráfico =====
+function atualizarLabelsGrafico() {
+  if (!graficoInstance) return;
+
+  graficoInstance.options.scales.y.title.text = t("chart.exchangeRateLabel");
+  graficoInstance.options.scales.x.title.text = t("chart.dateLabel");
+
+  graficoInstance.data.datasets[0].label = t("currency.usd");
+  graficoInstance.data.datasets[1].label = t("currency.cad");
+
+  graficoInstance.update();
+}
+
 // ===== GRÁFICO COMPARATIVO =====
 async function carregarGraficoComparativo() {
   try {
@@ -385,7 +883,13 @@ async function carregarGraficoComparativo() {
     const labels = dadosUSD
       .map((item) => {
         const data = new Date(item.timestamp * 1000);
-        return data.toLocaleDateString("pt-BR", {
+        const locale =
+          currentLanguage === "pt"
+            ? "pt-BR"
+            : currentLanguage === "es"
+            ? "es-ES"
+            : "en-US";
+        return data.toLocaleDateString(locale, {
           day: "2-digit",
           month: "2-digit",
         });
@@ -408,7 +912,7 @@ async function carregarGraficoComparativo() {
         labels,
         datasets: [
           {
-            label: "USD (Dólar Americano)",
+            label: t("currency.usd"),
             data: valoresUSD,
             borderColor: "#3498db",
             backgroundColor: "rgba(52, 152, 219, 0.1)",
@@ -422,7 +926,7 @@ async function carregarGraficoComparativo() {
             pointHoverRadius: 8,
           },
           {
-            label: "CAD (Dólar Canadense)",
+            label: t("currency.cad"),
             data: valoresCAD,
             borderColor: "#e67e22",
             backgroundColor: "rgba(230, 126, 34, 0.1)",
@@ -518,7 +1022,7 @@ async function carregarGraficoComparativo() {
           y: {
             title: {
               display: true,
-              text: "Taxa de Câmbio (BRL)",
+              text: t("chart.exchangeRateLabel"),
               color: corTexto,
               font: {
                 size: 13,
@@ -538,7 +1042,7 @@ async function carregarGraficoComparativo() {
           x: {
             title: {
               display: true,
-              text: "Data",
+              text: t("chart.dateLabel"),
               color: corTexto,
               font: {
                 size: 13,
@@ -559,8 +1063,11 @@ async function carregarGraficoComparativo() {
     window.graficoInstance = graficoInstance;
   } catch (error) {
     console.error("Erro ao carregar gráfico:", error);
-    document.querySelector(".grafico-wrapper").innerHTML =
-      '<p style="text-align: center; color: #e74c3c; padding: 50px;">Erro ao carregar gráfico. Tente novamente mais tarde.</p>';
+    document.querySelector(
+      ".grafico-wrapper"
+    ).innerHTML = `<p style="text-align: center; color: #e74c3c; padding: 50px;">${t(
+      "alerts.errorLoadingChart"
+    )}</p>`;
   }
 }
 
