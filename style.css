@@ -151,6 +151,49 @@ nav a:hover {
   color: var(--cor-hover);
 }
 
+/* ===== SELETOR DE IDIOMA ===== */
+.language-selector {
+  display: flex;
+  gap: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 4px;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.btn-lang {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.btn-lang:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--branco);
+}
+
+.btn-lang.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--branco);
+  font-weight: 600;
+}
+
+.btn-lang img {
+  width: 20px;
+  height: 15px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
 /* BOTÃO MODO ESCURO */
 .btn-tema {
   background-color: rgba(255, 255, 255, 0.15);
@@ -267,11 +310,20 @@ nav a:hover {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .btn-moeda:hover {
   border-color: var(--cor-hover);
   transform: translateY(-2px);
+}
+
+.btn-moeda span {
+  display: inline-flex;
+  align-items: center;
 }
 
 /* Botão USD ativo (azul) */
@@ -417,11 +469,20 @@ body.dark-mode .btn-refresh:hover {
   transition: all 0.3s;
   width: 100%;
   margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .btn-inverter:hover {
   background-color: var(--azul-principal);
   color: var(--branco);
+}
+
+.btn-inverter span {
+  display: inline-flex;
+  align-items: center;
 }
 
 body.dark-mode .btn-inverter {
@@ -482,6 +543,10 @@ body.dark-mode .btn-inverter:hover {
   color: var(--cor-titulo);
   margin-bottom: 20px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .comparacao-grid {
@@ -538,6 +603,10 @@ body.dark-mode .btn-inverter:hover {
   margin-bottom: 10px;
   text-align: center;
   font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .grafico-subtitulo {
@@ -572,12 +641,19 @@ body.dark-mode .btn-inverter:hover {
   margin-bottom: 25px;
   text-align: center;
   font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .grafico-explicacao h5 {
   color: var(--cor-titulo);
   margin-bottom: 15px;
   font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 /* Grid de Explicação */
@@ -788,6 +864,10 @@ body.dark-mode .dica-alerta strong {
   margin-bottom: 30px;
   text-align: center;
   font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 #historico-lista {
@@ -896,6 +976,9 @@ body.dark-mode .card {
   color: var(--cor-titulo);
   margin-bottom: 15px;
   font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .card p {
@@ -973,6 +1056,12 @@ footer {
     gap: 15px;
   }
 
+  .language-selector {
+    order: -1;
+    width: 100%;
+    justify-content: center;
+  }
+
   .hero h2 {
     font-size: 2rem;
   }
@@ -1035,6 +1124,16 @@ footer {
   .dica-box {
     padding: 15px;
   }
+
+  .grafico-container h3,
+  .historico-container h3,
+  .comparacao-rapida h4,
+  .grafico-explicacao h4,
+  .grafico-explicacao h5,
+  .card h4 {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1081,5 +1180,30 @@ footer {
 
   .explicacao-item .icone {
     font-size: 2rem;
+  }
+
+  .btn-lang {
+    padding: 4px 8px;
+    font-size: 0.8rem;
+  }
+
+  .btn-lang img {
+    width: 16px;
+    height: 12px;
+  }
+
+  .language-selector {
+    padding: 3px;
+  }
+
+  .btn-moeda {
+    flex-direction: column;
+    gap: 5px;
+    padding: 12px 15px;
+  }
+
+  .btn-inverter {
+    flex-direction: column;
+    gap: 5px;
   }
 }
